@@ -14,3 +14,19 @@
     top: 120px;
   }
 }
+
+.text-banner{
+  color: #fff;
+  font-size: 27px;
+  line-height: 30px;
+  position: relative;
+  &.left-text{
+    top: 220px;
+    left: 50px;
+    text-align: right;
+  }
+  &.right-text{
+    top: 190px;
+    right: 50px;
+  }
+}
