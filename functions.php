@@ -307,7 +307,7 @@ if ( is_woocommerce_activated() ) {
 	require get_template_directory() . '/inc/woocommerce/template-tags.php';
 }
 
-function functions_costa_brava() {
+function customPostTypes() {
 		include_once('admin/default/create-theme-options.php');
 }
-add_action( 'init', 'functions_costa_brava', 1 );
+add_action( 'init', 'customPostTypes', 1 );

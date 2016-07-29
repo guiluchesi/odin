@@ -23,7 +23,6 @@
 	<?php
 		wp_head();
 		$odin_main_configuration = get_option( 'main_configuration' );
-		$odin_main_midias = get_option( 'main_midias' );
 
 		$logo_id = $odin_main_configuration['logo'];
 		$get_url_logo = wp_get_attachment_image_src( $logo_id, 'full' );
@@ -40,18 +39,11 @@
 
 	<header id="header" role="banner">
 		<div class="container">
-				<?php if ( is_home() ) : ?>
+				<div class="logo col-md-6">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<?php bloginfo( 'name' ); ?>
+							<img src="<?php echo $get_url_logo[0]; ?>" alt="" />
 						</a>
-					<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-				<?php else : ?>
-					<div class="logo col-md-6">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-								<img src="<?php echo $get_url_logo[0]; ?>" alt="" />
-							</a>
-					</div>
-				<?php endif ?>
+				</div>
  				<div id="main-navigation" class="navbar col-md-6 navbar-default">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-navigation">
@@ -92,6 +84,3 @@
 
 		</div><!-- .container-->
 	</header><!-- #header -->
-
-	<div id="wrapper" class="container">
-		<div class="row">
