@@ -11,13 +11,41 @@
 get_header();
 ?>
 
-<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 
 		<?php
 			// Start the Loop.
 			while ( have_posts() ) : the_post();
+				$imagens = get_field('slider'); ?>
 
-				// Include the page content template.
+				<div id="home-carousel" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<?php
+							foreach ($imagens as $index => $imagem) {
+								$imgUrl = $imagem['url'];
+						?>
+							<div class="item <?php if($index === 0){echo 'active';}?>">
+								<img src="<?php echo $imgUrl; ?>" alt="First slide">
+							</div>
+						<?php } ?>
+					</div>
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<span class="icon-prev" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="icon-next" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+
+			<div id="wrapper" class="container">
+				<div class="row">
+				<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
+		<?php
 				get_template_part( 'content', 'page' );
 
 				// If comments are open or we have at least one comment, load up the comment template.
@@ -27,7 +55,7 @@ get_header();
 			endwhile;
 		?>
 
-</main><!-- #main -->
 
+	</main><!-- #main -->
 <?php
 get_footer();
