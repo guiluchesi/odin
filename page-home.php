@@ -19,8 +19,13 @@ get_header();
 
 				<div id="home-carousel" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
-						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<?php
+							foreach ($imagens as $index => $imagem) {
+								$imgUrl = $imagem['url'];
+						?>
+							<li data-target="#home-carousel" data-slide-to="<?php echo $index;?>" <?php if($index === 0){echo 'class="active"';}?>></li>
+						<?php } ?>
+
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<?php
@@ -32,11 +37,11 @@ get_header();
 							</div>
 						<?php } ?>
 					</div>
-					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					<a class="left carousel-control" href="#home-carousel" role="button" data-slide="prev">
 						<span class="icon-prev" aria-hidden="true"></span>
 						<span class="sr-only">Previous</span>
 					</a>
-					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					<a class="right carousel-control" href="#home-carousel" role="button" data-slide="next">
 						<span class="icon-next" aria-hidden="true"></span>
 						<span class="sr-only">Next</span>
 					</a>
