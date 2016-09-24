@@ -1,0 +1,71 @@
+.artigo
+	text-align center
+	padding 30px
+	a
+		color #646464
+		border none
+		transition all 0.2s
+		&.btn
+			color white !important
+	.featured
+		width 280px
+		margin 0 auto
+		img
+			border-radius 50%
+			border 7px solid #646464
+			-webkit-filter grayscale(100%)
+			filter grayscale(100%)
+			transition all 0.5s
+
+	&:hover
+		a
+			color #00b0ff
+			text-decoration none
+			background-color #00b0ff
+			img
+				border 7px solid #00b0ff
+				-webkit-filter grayscale(0)
+				filter grayscale(0)
+
+.cards
+	position relative
+	bottom 42px
+	.card
+		display inline-block
+		background-color #3c85bd
+		color white
+		padding 5px 15px
+		font-size 1.5em
+		position relative
+		bottom 27px
+		margin-left 10px
+		text-decoration none
+		&:hover
+			background-color lightness(#3c85bd, 40%)
+		&.main
+			transform rotate(-3deg)
+			font-size 3.5em
+			text-transform uppercase
+			font-weight bold
+			position relative
+			bottom 18px
+			padding 5px 30px
+			margin-left 0
+			margin-right 10px
+			&:hover
+				background-color #3c85bd
+
+@media (max-width: $screen-sm-max)
+	.cards
+		width 333px
+		margin 0 auto
+		.card
+			bottom 0
+			&.main
+				transform none
+				font-size 1.5em
+				font-weight normal
+				text-transform none
+				bottom 0
+				margin-right 0
+				padding 9px 15px
